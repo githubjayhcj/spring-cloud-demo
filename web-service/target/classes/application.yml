@@ -1,0 +1,15 @@
+server:
+#  port: 8081
+  port: 8082
+
+spring:
+  application:
+    name: web-service
+
+  # spring Session store type.
+  session:
+    store-type: redis
+  data:
+    redis:
+      host: localhost # Redis server host.
+      port: 6379 # Redis server port.
