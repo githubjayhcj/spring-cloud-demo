@@ -1,6 +1,7 @@
 # server config (tomcat)
 server:
-  port: 8080
+  port: 8081
+#  port: 8082
 
 # spring config
 spring:
@@ -35,5 +36,6 @@ mybatis:
 #  mapper-locations: classpath:com/example/dataService/mapper/*.xml
   mapper-locations: com/example/dataService/mapper/*.xml   #不加classpath指定位置在classes目录下，因为java目录和resources目录编译后的文件都在classes目录下，所以也可以认为是在java目录下或者resources目录下。
   type-aliases-package: com.example.dataService.entity
+#  type-aliases-package: com.example.entity
 
 

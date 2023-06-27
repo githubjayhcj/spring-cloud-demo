@@ -4,82 +4,52 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5cc4f19-71bd-4405-b3c0-4f08f2d03c67" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HELP.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/DataServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/controller/TestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/jpaRepoisitory/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/service/TestService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/serviceImpl/TestServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/src/test/java/com/example/dataService/DataServiceApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/target/classes/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/target/classes/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/target/classes/com/example/dataService/DataServiceApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/target/classes/com/example/dataService/controller/TestController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/target/classes/com/example/dataService/entity/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/target/classes/com/example/dataService/jpaRepoisitory/UserRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/target/classes/com/example/dataService/mapper/UserMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/target/classes/com/example/dataService/mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/target/classes/com/example/dataService/service/TestService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/target/classes/com/example/dataService/serviceImpl/TestServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/target/test-classes/com/example/dataService/DataServiceApplicationTests.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entity-class/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entity-class/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entity-class/src/main/java/com/example/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entity-class/src/main/java/com/example/entity/TestUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entity-class/src/test/java/com/example/AppTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entity-class/target/classes/com/example/App.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entity-class/target/classes/com/example/entity/TestUser.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/spring-cloud-demo/com/example/springclouddemo/SpringCloudDemoApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/spring-cloud-demo/com/example/springclouddemo/controller/TestController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/test/spring-cloud-demo/com/example/springclouddemo/SpringCloudDemoApplicationTests.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-demo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/springclouddemo/SpringCloudDemoApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/springclouddemo/controller/TestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/springclouddemo/SpringCloudDemoApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/WebServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/controller/TestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/src/test/java/com/example/webService/AppTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/target/classes/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/target/classes/com/example/webService/WebServiceApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/target/classes/com/example/webService/controller/TestController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/target/test-classes/com/example/webService/AppTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/target/web-service-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/target/web-service-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/项目描述.rtf" afterDir="false" />
+    <list default="true" id="d5cc4f19-71bd-4405-b3c0-4f08f2d03c67" name="Changes" comment="2023-6-26">
+      <change afterPath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/common/DataResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entity-class/src/main/java/com/example/common/DataResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entity-class/src/main/java/com/example/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/FlowRuleAndDegradeRule/DefaultRule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/blockHandleAndFallBack/DefaultExceptionUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/common/DataResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/openFeign/DataServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/service/TestService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/serviceImpl/TestServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/service/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/service/TestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/data-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/data-service/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-service/target/classes/com/example/dataService/controller/TestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/data-service/target/classes/com/example/dataService/controller/TestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity-class/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/entity-class/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity-class/src/main/java/com/example/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity-class/src/main/java/com/example/entity/TestUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/entity-class/src/main/java/com/example/entity/TestUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity-class/src/test/java/com/example/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity-class/target/classes/com/example/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity-class/target/classes/com/example/entity/TestUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/entity-class/target/classes/com/example/entity/TestUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/springclouddemo/SpringCloudDemoApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/springclouddemo/controller/TestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/springclouddemo/SpringCloudDemoApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/WebServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/WebServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/target/classes/com/example/webService/WebServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/target/classes/com/example/webService/WebServiceApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/target/classes/com/example/webService/controller/TestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/target/classes/com/example/webService/controller/TestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/target/web-service-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/target/web-service-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/target/web-service-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/target/web-service-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,13 +59,26 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="ed3fe453-9dee-433c-8d8e-4b87f8f228f2" />
+        <option name="url" value="https://github.com/githubjayhcj/spring-cloud-demo.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -122,6 +105,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -136,11 +120,11 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "vcs.Git",
-    "spring.configuration.checksum": "fbd39d0a83503a407039cd99775bfbaa",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "spring.configuration.checksum": "741838fad64563b89b379fbf69e3442b",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -148,9 +132,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/web-service/src/main/java/com/example/webService" />
       <recent name="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService" />
+      <recent name="$PROJECT_DIR$/entity-class/src/main/java/com/example/entity" />
+      <recent name="$PROJECT_DIR$/web-service/src/main/resources" />
       <recent name="$PROJECT_DIR$/data-service/src/main/resources" />
-      <recent name="$PROJECT_DIR$/data-service/src/main/resources/com.example.dataService.mapper" />
-      <recent name="$PROJECT_DIR$/data-service/target/classes/com/example/dataService/mapper" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/mapper" />
@@ -166,7 +150,11 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JAR Application.web-service-0.0.1-SNAPSHOT.jar">
+  <component name="RunManager" selected="Spring Boot.WebServiceApplication">
+    <configuration name="data-service-0.0.1-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/data-service/target/data-service-0.0.1-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
     <configuration name="web-service-0.0.1-SNAPSHOT.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/web-service/target/web-service-0.0.1-SNAPSHOT.jar" />
       <method v="2" />
@@ -202,6 +190,7 @@
       <list>
         <item itemvalue="JAR Application.web-service-0.0.1-SNAPSHOT.jar" />
         <item itemvalue="Spring Boot.DataServiceApplication" />
+        <item itemvalue="JAR Application.data-service-0.0.1-SNAPSHOT.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -224,11 +213,26 @@
       <workItem from="1687608400731" duration="2842000" />
       <workItem from="1687611863280" duration="279000" />
       <workItem from="1687612213520" duration="14809000" />
-      <workItem from="1687739812634" duration="1522000" />
+      <workItem from="1687739812634" duration="10565000" />
+      <workItem from="1687788701768" duration="9522000" />
+      <workItem from="1687828073721" duration="10300000" />
+      <workItem from="1687839184054" duration="20332000" />
     </task>
+    <task id="LOCAL-00001" summary="2023-6-26">
+      <created>1687742340837</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1687742340837</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="2023-6-26" />
+    <option name="LAST_COMMIT_MESSAGE" value="2023-6-26" />
   </component>
 </project>

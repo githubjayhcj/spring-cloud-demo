@@ -18,11 +18,11 @@
 
     <dependencies>
         <!--    导入其他子模块（module）- entity-class    -->
-        <dependency>
-            <groupId>com.example</groupId>
-            <artifactId>entity-class</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.example</groupId>-->
+<!--            <artifactId>entity-class</artifactId>-->
+<!--            <version>0.0.1-SNAPSHOT</version>-->
+<!--        </dependency>-->
 
         <!--    spring    -->
         <dependency>

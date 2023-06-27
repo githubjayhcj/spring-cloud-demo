@@ -19,6 +19,13 @@
     </properties>
 
     <dependencies>
+        <!--    导入其他子模块（module）- entity-class    -->
+<!--        <dependency>-->
+<!--            <groupId>com.example</groupId>-->
+<!--            <artifactId>entity-class</artifactId>-->
+<!--            <version>0.0.1-SNAPSHOT</version>-->
+<!--        </dependency>-->
+
         <!--    spring    -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -34,7 +41,7 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
-        <!--	节点探测（状态信息，nacos注册）	-->
+        <!--	节点探测（状态信息）	-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -61,10 +68,30 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
         <!--       -->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.data</groupId>-->
+<!--            <artifactId>spring-data-jpa</artifactId>-->
+<!--        </dependency>-->
+        <!--    spring cloud openFeign  (loadbalence负载均衡技术规范 - - -> ribbon 第一代实现 - - -> feign(停维护)：基于ribbon 的 restful 风格实现 - - -> openFeign : spring cloud 基于 feign 的替代实现)  -->
         <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+        <!--    开启权重路由 Spring Cloud Loadbalancer    -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-loadbalancer</artifactId>
+        </dependency>
+        <!--    spring cloud alibaba sentinel    -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.csp</groupId>-->
+<!--            <artifactId>sentinel-transport-simple-http</artifactId>-->
+<!--        </dependency>-->
 
 
         <dependency>
