@@ -224,6 +224,15 @@ public class TestController {
         //Thread.sleep(30000);
         return "this is getResourceF";
     }
+
+
+    @RequestMapping("/test2")
+    public DataResult test2(){
+        DataResult data = dataServiceClient.getUserById(1);
+        System.out.println("test2:"+data.getMessage());
+        DataResult data2 = dataServiceClient.erro();
+        return data2;
+    }
     
 
 

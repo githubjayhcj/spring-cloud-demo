@@ -91,12 +91,22 @@ public class TestController {
     }
 
     @RequestMapping("/saveAll")
-    public DataResult saveAll() throws IOException {
+    public DataResult saveAll() {
         List<User> users = new ArrayList<>();
         users.add(new User("evins-insert-eee","1178376362@11.com"));
         users.add(new User("evins-insert-fff","117837636@11.com117837636@11.com117837636@11.com"));
-        testService.saveService(users);
-        return new DataResult<List<User>>(1,"save ok",users);
+        DataResult data = new DataResult(users);
+//        try {
+//            data = testService.saveService(users);
+////            testService.saveService2(users);
+//            data.setMessage("save ok");
+//        }catch (Exception e){
+//            String message = "serverName:"+appName+". serverPort:"+port+". class:TestServiceImpl. method:public DataResult saveService(List<User> users). IOException:"+e.getMessage();
+//            data.setCode(0);
+//            data.setMessage(message);
+//        }
+        data = testService.saveService(users);
+        return data;
     }
 
     @RequestMapping("/getUserById/{id}")
@@ -106,5 +116,16 @@ public class TestController {
         data.setMessage("ok , service name:"+appName+". port:"+port);
         data.setData(user);
         return data;
+    }
+
+    @RequestMapping("/erro")
+    public DataResult erro(){
+        throw new RuntimeException("erro from : "+appName+":"+port);
+    }
+
+    @RequestMapping("/getStr")
+    public DataResult getStr() {
+        System.err.println("myName="+myName);
+        return new DataResult("getStr");
     }
 }

@@ -82,7 +82,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-loadbalancer</artifactId>
         </dependency>
-        <!--    spring cloud alibaba sentinel    -->
+        <!--    spring cloud alibaba sentinel 默认整合 openfeign   -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
