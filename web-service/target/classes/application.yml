@@ -17,6 +17,7 @@ spring:
       transport:
         # 这里的 spring.cloud.sentinel.transport.port 端口配置会在应用对应的机器上启动一个 Http Server，该 Server 会与 Sentinel 控制台做交互。比如 Sentinel 控制台添加了1个限流规则，会把规则数据 push 给这个 Http Server 接收，Http Server 再将规则注册到 Sentinel 中。
         port: 8719
+#        port: 8720
         dashboard: localhost:8080
 
 
@@ -28,6 +29,7 @@ spring:
       host: localhost # Redis server host.
       port: 6379 # Redis server port.
 
+
 # 开启节点探测服务选项
 management:
   endpoints:
@@ -38,4 +40,8 @@ management:
     health:
       show-details: always
 
+# 打开 Sentinel 对 Feign 的支持
+feign:
+  sentinel:
+    enabled: true
 
