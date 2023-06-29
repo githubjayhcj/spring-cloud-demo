@@ -29,9 +29,4 @@ public class WebServiceApplication
         SpringApplication.run(WebServiceApplication.class, args);
     }
 
-//    @FeignClient("data-service")
-//    interface HelloClient {
-//        @RequestMapping(value = "/get/{id}", method = GET)
-//        String hello(@PathVariable int id);
-//    }
 }

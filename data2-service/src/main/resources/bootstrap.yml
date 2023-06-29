@@ -1,0 +1,36 @@
+# spring config
+spring:
+  application:
+    name: data2-service
+
+  # nacos config
+  cloud:
+    nacos:
+      username: 'nacos'
+      password: 'nacos'
+      #Nacos 注册服务器 的地址
+      discovery:
+        server-addr: 127.0.0.1:8848
+      #Nacos 配置服务器 的地址
+      config:
+        server-addr: 127.0.0.1:8848
+        # default properties
+        file-extension: yaml
+        # 自动刷新
+        refresh-enabled: true
+
+      # recommended.
+#        shared-configs[0]:
+#          data-id: "data-service.yaml"
+#          refresh: true
+#        extension-configs: data-service-dev.yaml
+
+
+# 日志
+logging:
+  level:
+    com:
+      alibaba:
+        cloud:
+          nacos:
+            client: debug

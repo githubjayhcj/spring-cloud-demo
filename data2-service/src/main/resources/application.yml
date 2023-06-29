@@ -1,0 +1,41 @@
+# server config (tomcat)
+server:
+  port: 8085
+#  port: 8086
+
+# spring config
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  datasource:
+#    url: jdbc:mysql://localhost:3306/mydatabase
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/mydata
+    username: root
+    password: admin123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # 开发环境文件
+#  profiles:
+#    active: dev
+
+# 开启节点探测服务选项
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+# mybatis config
+mybatis:
+#  mapper-locations: classpath:com/example/dataService/mapper/*.xml
+  mapper-locations: com/example/data2Service/mapper/*.xml   #不加classpath指定位置在classes目录下，因为java目录和resources目录编译后的文件都在classes目录下，所以也可以认为是在java目录下或者resources目录下。
+  type-aliases-package: com.example.data2Service.entity
+#  type-aliases-package: com.example.entity
+
+

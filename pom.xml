@@ -21,6 +21,7 @@
 		<module>data-service</module>
 		<module>entity-class</module>
 		<module>web-service</module>
+        <module>data2-service</module>
     </modules>
 
 	<properties>

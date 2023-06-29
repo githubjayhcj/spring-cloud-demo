@@ -15,7 +15,9 @@ import com.alibaba.csp.sentinel.slots.block.flow.FlowRuleManager;
 import com.example.webService.FlowRuleAndDegradeRule.DefaultRule;
 import com.example.webService.blockHandleAndFallBack.DefaultExceptionUtil;
 import com.example.webService.common.DataResult;
+import com.example.webService.entity.Product;
 import com.example.webService.entity.User;
+import com.example.webService.openFeign.Data2ServiceClient;
 import com.example.webService.openFeign.DataServiceClient;
 import com.example.webService.service.TestService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -44,6 +46,10 @@ public class TestController {
 
     @Autowired
     private DataServiceClient dataServiceClient;
+
+    @Autowired
+    private Data2ServiceClient data2ServiceClient;
+
 
     @Autowired
     private TestService testService;
@@ -233,7 +239,13 @@ public class TestController {
         DataResult data2 = dataServiceClient.erro();
         return data2;
     }
-    
+
+    @RequestMapping("/trans")
+    public DataResult trans(){
+        DataResult data = data2ServiceClient.insertProduct(new Product("webServiceProduct",33333));
+        System.out.println("test:"+data.getMessage());
+        return data;
+    }
 
 
 
