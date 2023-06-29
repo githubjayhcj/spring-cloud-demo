@@ -4,7 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5cc4f19-71bd-4405-b3c0-4f08f2d03c67" name="Changes" comment="2023-6-29" />
+    <list default="true" id="d5cc4f19-71bd-4405-b3c0-4f08f2d03c67" name="Changes" comment="2023-6-29">
+      <change afterPath="$PROJECT_DIR$/data2-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data2-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/Data2ServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/common/DataResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/controller/TestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/entity/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/mapper/ProductMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/mapper/ProductMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/service/TestService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/serviceImpl/TestServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data2-service/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data2-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data2-service/src/test/java/com/example/data2Service/Data2ServiceApplicationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/entity/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/openFeign/Data2ServiceClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/WebServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/WebServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/target/classes/com/example/webService/controller/TestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/target/classes/com/example/webService/controller/TestController.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,8 +36,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -63,43 +86,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;20&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/hongchenjie/Documents/root/workSpace/developerEnvironment/IdeaProjects/spring-cloud-demo/web-service/src/main/java/com/example/webService&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;741838fad64563b89b379fbf69e3442b&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "20",
+    "last_opened_file_path": "/Users/hongchenjie/Documents/root/workSpace/developerEnvironment/IdeaProjects/spring-cloud-demo/web-service/src/main/java/com/example/webService/openFeign",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "spring.configuration.checksum": "741838fad64563b89b379fbf69e3442b",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/openFeign" />
+      <recent name="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service" />
+      <recent name="$PROJECT_DIR$/data2-service/src/main/resources" />
       <recent name="$PROJECT_DIR$/web-service/src/main/java/com/example/webService" />
       <recent name="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService" />
-      <recent name="$PROJECT_DIR$/entity-class/src/main/java/com/example/entity" />
-      <recent name="$PROJECT_DIR$/web-service/src/main/resources" />
-      <recent name="$PROJECT_DIR$/data-service/src/main/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/mapper" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.webService.entity" />
       <recent name="com.example.dataService" />
     </key>
   </component>
@@ -118,6 +142,13 @@
     <configuration name="web-service-0.0.1-SNAPSHOT.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/web-service/target/web-service-0.0.1-SNAPSHOT.jar" />
       <method v="2" />
+    </configuration>
+    <configuration name="Data2ServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="data2-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.data2Service.Data2ServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="DataServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="data-service" />
@@ -206,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688021716013</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="2023-6-29">
+      <created>1688022111498</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1688022111498</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
