@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5cc4f19-71bd-4405-b3c0-4f08f2d03c67" name="Changes" comment="2023-6-27" />
+    <list default="true" id="d5cc4f19-71bd-4405-b3c0-4f08f2d03c67" name="Changes" comment="2023-6-29" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -199,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687929778391</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="2023-6-29">
+      <created>1688021716013</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1688021716013</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,6 +215,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="2023-6-26" />
     <MESSAGE value="2023-6-27" />
-    <option name="LAST_COMMIT_MESSAGE" value="2023-6-27" />
+    <MESSAGE value="2023-6-29" />
+    <option name="LAST_COMMIT_MESSAGE" value="2023-6-29" />
   </component>
 </project>
