@@ -4,6 +4,7 @@ import com.example.data2Service.common.DataResult;
 import com.example.data2Service.entity.Product;
 import com.example.data2Service.mapper.ProductMapper;
 import com.example.data2Service.service.TestService;
+import io.seata.core.context.RootContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,13 @@ public class TestServiceImpl implements TestService {
 
 
     @Override
+    public Product selectById(int id) {
+        return productMapper.selectById(id);
+    }
+
+    @Override
     public DataResult insertProduct(Product product) {
+        System.err.println("开始全局事务，XID = " + RootContext.getXID());
         int save = productMapper.insertProduct(product);
         DataResult dataResult = new DataResult();
         dataResult.setMessage("save ok");

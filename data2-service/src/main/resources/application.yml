@@ -1,7 +1,7 @@
 # server config (tomcat)
 server:
-  port: 8085
-#  port: 8086
+#  port: 8085
+  port: 8086
 
 # spring config
 spring:
@@ -16,6 +16,58 @@ spring:
     username: root
     password: admin123
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # 开启权重路由 ：Spring Cloud Loadbalancer nacos 实现
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+      nacos:
+        enabled: true
+    # spring cloud stream rocketMQ
+    stream:
+      function:
+        definition: consumer;
+      rocketmq:
+        binder:
+          name-server: localhost:9876
+        bindings:
+          consumer-in-0:
+            consumer:
+              messageModel: BROADCASTING
+      bindings:
+        consumer-in-0:
+          destination: broadcast
+          group: broadcast-consumer
+
+# seata
+seata:
+  config:
+    file:
+      name: file.conf
+    type: nacos
+    nacos:
+      server-addr: 127.0.0.1:8848
+      group : SEATA_GROUP
+      namespace:
+      username: nacos
+      password: nacos
+  registry:
+    file:
+      name: file.conf
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 127.0.0.1:8848
+      group : SEATA_GROUP
+      namespace:
+      username: nacos
+      password: nacos
+      cluster: default
+  #  tx-service-group: default_tx_group
+  #  service:
+  #    vgroup-mapping:
+  #      default_tx_group: default
 
   # 开发环境文件
 #  profiles:

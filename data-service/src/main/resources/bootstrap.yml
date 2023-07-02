@@ -34,3 +34,5 @@ logging:
         cloud:
           nacos:
             client: debug
+    #
+    org.springframework.context.support: debug

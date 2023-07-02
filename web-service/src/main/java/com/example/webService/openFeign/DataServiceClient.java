@@ -39,16 +39,16 @@ class DataServiceFallback implements DataServiceClient{
 
     @Override
     public DataResult<User> getUserById(int id) {
-        return new DataResult<>("getUserById 失败 ，请稍后重试。");
+        return new DataResult<>(0,"getUserById 失败 ，请稍后重试。");
     }
 
     @Override
     public DataResult<User> saveUser(User user) {
-        return new DataResult<>("saveUser 失败 ，请稍后重试。");
+        return new DataResult<>(0,"saveUser 失败 ，请稍后重试。");
     }
 
     @Override
     public DataResult erro() {
-        return new DataResult<>("erro 失败 ，请稍后重试。");
+        return new DataResult<>(0,"erro 失败 ，请稍后重试。");
     }
 }

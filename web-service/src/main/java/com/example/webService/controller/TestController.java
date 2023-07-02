@@ -16,14 +16,24 @@ import com.example.webService.FlowRuleAndDegradeRule.DefaultRule;
 import com.example.webService.blockHandleAndFallBack.DefaultExceptionUtil;
 import com.example.webService.common.DataResult;
 import com.example.webService.entity.Product;
+import com.example.webService.entity.SimpleMsg;
 import com.example.webService.entity.User;
 import com.example.webService.openFeign.Data2ServiceClient;
 import com.example.webService.openFeign.DataServiceClient;
 import com.example.webService.service.TestService;
+import com.example.webService.service.TransService;
+import io.seata.core.context.RootContext;
+import io.seata.core.exception.TransactionException;
+import io.seata.spring.annotation.GlobalTransactional;
+import io.seata.tm.api.GlobalTransaction;
+import io.seata.tm.api.GlobalTransactionContext;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.stream.function.StreamBridge;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.support.GenericMessage;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,6 +63,12 @@ public class TestController {
 
     @Autowired
     private TestService testService;
+
+    @Autowired
+    private TransService transService;
+
+    @Autowired
+    private StreamBridge streamBridge;
 
     @RequestMapping("/test")
     public String test(HttpServletRequest request) {
@@ -240,13 +256,55 @@ public class TestController {
         return data2;
     }
 
+//    @GlobalTransactional()
     @RequestMapping("/trans")
-    public DataResult trans(){
-        DataResult data = data2ServiceClient.insertProduct(new Product("webServiceProduct",33333));
-        System.out.println("test:"+data.getMessage());
-        return data;
+    public List<DataResult> trans() throws Exception{
+        Product product = new Product("transProduct5555",33333);
+        User user = new User("transUser55555","save user save usersave usersave usersave user");
+
+        List<DataResult> datas = transService.transSave(user,product);
+        return datas;
     }
 
+    // 手动执行全局事务操作
+    @RequestMapping("/trans2")
+    public List<DataResult> trans2() {
+        DataResult dataResult = null;
+        DataResult dataResult2 = null;
+        List<DataResult> datas = new ArrayList<>();
+        try {
+            GlobalTransaction globalTransaction = GlobalTransactionContext.getCurrentOrCreate();
+            globalTransaction.begin();
+            System.err.println("开始全局事务，XID = " + RootContext.getXID());
+
+            Product product = new Product("transProduct5555",33333);
+            User user = new User("transUser55555","save user save usersave usersave usersave usersave usersave user");
+
+            dataResult = data2ServiceClient.insertProduct(product);
+            dataResult2 = dataServiceClient.saveUser(user);
+            datas.add(dataResult);
+            datas.add(dataResult2);
+            if (dataResult2.getCode() == 0){
+                System.err.println("开始手动事务回滚....");
+                globalTransaction.rollback();
+            }
+        }catch (TransactionException transactionException){
+            dataResult.setCode(0);
+            dataResult2.setCode(0);
+            datas.add(dataResult);
+            datas.add(dataResult2);
+            return datas;
+        }
+        return datas;
+    }
+
+
+    @RequestMapping("/sendTopic/{msgStr}")
+    public String sendTopic(@PathVariable String msgStr) throws Exception{
+        Message<SimpleMsg> msg = new GenericMessage<SimpleMsg>(new SimpleMsg(msgStr));
+        streamBridge.send("producer-out-0", msg);
+        return "ok";
+    }
 
 
 }

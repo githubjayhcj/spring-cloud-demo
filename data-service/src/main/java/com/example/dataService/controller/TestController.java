@@ -1,10 +1,14 @@
 package com.example.dataService.controller;
 
 import com.example.dataService.common.DataResult;
+import com.example.dataService.entity.Product;
 import com.example.dataService.entity.User;
 import com.example.dataService.jpaRepoisitory.UserRepository;
 import com.example.dataService.mapper.UserMapper;
+import com.example.dataService.openFeign.Data2ServiceClient;
 import com.example.dataService.service.TestService;
+import io.seata.core.context.RootContext;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -39,6 +43,9 @@ public class TestController {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private Data2ServiceClient data2ServiceClient;
 
     @RequestMapping("/user")
     public String user(){
@@ -85,6 +92,7 @@ public class TestController {
 
     @PostMapping("/saveUser")
     public DataResult saveUser(@RequestBody User user) throws IOException {
+        System.err.println("开始全局事务，XID = " + RootContext.getXID());
         System.out.println(user.toString());
         userMapper.insertUser(user);
         return new DataResult<User>(1,"save ok",user);
@@ -127,5 +135,22 @@ public class TestController {
     public DataResult getStr() {
         System.err.println("myName="+myName);
         return new DataResult("getStr");
+    }
+    @RequestMapping("/getPById/{id}")
+    @GlobalTransactional
+    public DataResult getStr(@PathVariable int id) {
+        System.err.println("开始全局事务，XID = " + RootContext.getXID());
+
+        return data2ServiceClient.getPById(id);
+    }
+
+
+    @RequestMapping("/trans")
+    public List<DataResult> trans() {
+        System.err.println("trans");
+        User user = new User("tolong user","email aaaaemail email aaaaemailemail aaaaemailemail aaaaemail");
+        Product product = new Product("tolong producr",1234);
+        List<DataResult> dataResultList = testService.transSave(user,product);
+        return dataResultList;
     }
 }

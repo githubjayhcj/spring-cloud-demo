@@ -1,24 +1,23 @@
-package com.example.webService.openFeign;
+package com.example.dataService.openFeign;
 
 
-import com.example.webService.common.DataResult;
-import com.example.webService.entity.Product;
-import com.example.webService.entity.User;
+
+import com.example.dataService.common.DataResult;
+import com.example.dataService.entity.Product;
+import com.example.dataService.entity.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Component
-@FeignClient(value = "data2-service", fallback = Data2ServiceFallback.class, configuration = Data2ServiceFeignConfiguration.class)
+@FeignClient(value = "data2-service")
 public interface Data2ServiceClient {
     @PostMapping(value = "/saveProduct")
-    DataResult insertProduct(@RequestBody Product product);
+    DataResult insertProduct(Product product);
 
-
+    @GetMapping("/getPById/{id}")
+    DataResult getPById(@PathVariable int id);
 
 }
 
@@ -37,5 +36,10 @@ class Data2ServiceFallback implements Data2ServiceClient{
     @Override
     public DataResult<User> insertProduct(Product product) {
         return new DataResult(0,"Data2ServiceFallback insertProduct 失败 ，请稍后重试。");
+    }
+
+    @Override
+    public DataResult getPById(int id) {
+        return new DataResult(0,"Data2ServiceFallback getPById 失败 ，请稍后重试。");
     }
 }
