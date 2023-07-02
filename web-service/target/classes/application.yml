@@ -18,7 +18,19 @@ spring:
         # 这里的 spring.cloud.sentinel.transport.port 端口配置会在应用对应的机器上启动一个 Http Server，该 Server 会与 Sentinel 控制台做交互。比如 Sentinel 控制台添加了1个限流规则，会把规则数据 push 给这个 Http Server 接收，Http Server 再将规则注册到 Sentinel 中。
         port: 8719
 #        port: 8720
-        dashboard: localhost:8080
+        dashboard: localhost:8099
+    # spring cloud stream rocketMQ
+    stream:
+      rocketmq:
+        binder:
+          name-server: localhost:9876
+        bindings:
+          producer-out-0:
+            producer:
+              group: output_1
+      bindings:
+        producer-out-0:
+          destination: broadcast
 
 
   # spring Session store type.
@@ -29,6 +41,34 @@ spring:
       host: localhost # Redis server host.
       port: 6379 # Redis server port.
 
+# seata
+seata:
+  config:
+    file:
+      name: file.conf
+    type: nacos
+    nacos:
+      server-addr: 127.0.0.1:8848
+      group : SEATA_GROUP
+      namespace:
+      username: nacos
+      password: nacos
+  registry:
+    file:
+      name: file.conf
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 127.0.0.1:8848
+      group : SEATA_GROUP
+      namespace:
+      username: nacos
+      password: nacos
+      cluster: default
+#  tx-service-group: default_tx_group
+#  service:
+#    vgroup-mapping:
+#      default_tx_group: default
 
 # 开启节点探测服务选项
 management:
