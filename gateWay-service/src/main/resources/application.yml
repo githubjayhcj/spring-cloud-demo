@@ -1,0 +1,36 @@
+server:
+  port: 8070
+#  port: 8071
+
+spring:
+  application:
+    name: gateway-service
+  # 开启权重路由 ：Spring Cloud Loadbalancer nacos 实现
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+      nacos:
+        enabled: true
+    #  spring cloud gateway
+    gateway:
+      routes:
+      - id: web-service
+        uri: lb://web-service
+        predicates:
+        - Path=/**
+
+# 开启节点探测服务选项
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+

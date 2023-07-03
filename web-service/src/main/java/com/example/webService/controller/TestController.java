@@ -86,14 +86,14 @@ public class TestController {
     public String set(HttpServletRequest request, @PathVariable String value) {
         HttpSession session = request.getSession();
         session.setAttribute("sessionVal",value);
-        return serverPort+"ok";
+        return "web service port:"+serverPort;
     }
 
     @RequestMapping("/getSession")
     public String get(HttpServletRequest request) {
         HttpSession session = request.getSession();
         String sessionValue = (String) session.getAttribute("sessionVal");
-        return serverPort+":sessionValue="+sessionValue;
+        return "web-service port:"+serverPort+":sessionValue="+sessionValue;
     }
 
     @GetMapping("/saveUser")
