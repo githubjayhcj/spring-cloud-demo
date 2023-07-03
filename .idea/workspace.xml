@@ -4,48 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5cc4f19-71bd-4405-b3c0-4f08f2d03c67" name="Changes" comment="2023-6-29-2">
-      <change afterPath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/configure/OpenFeignInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/entity/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/entity/SimpleMsg.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/openFeign/Data2ServiceClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/configure/OpenFeignInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/configure/RocketMQConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/entity/SimpleMsg.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/configure/OpenFeignInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/entity/SimpleMsg.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/service/TransService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/serviceImpl/TransServiceImpl.java" afterDir="false" />
+    <list default="true" id="d5cc4f19-71bd-4405-b3c0-4f08f2d03c67" name="Changes" comment="2023-7-2">
+      <change afterPath="$PROJECT_DIR$/gateWay-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateWay-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateWay-service/src/main/java/com/example/gateWayService/GateWayApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateWay-service/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateWay-service/src/test/java/com/example/gateWayService/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/DataServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/DataServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/controller/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/service/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/service/TestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/serviceImpl/TestServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/serviceImpl/TestServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/data-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/data-service/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/data-service/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-service/target/classes/com/example/dataService/controller/TestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/data-service/target/classes/com/example/dataService/controller/TestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-service/target/classes/com/example/dataService/service/TestService.class" beforeDir="false" afterPath="$PROJECT_DIR$/data-service/target/classes/com/example/dataService/service/TestService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-service/target/classes/com/example/dataService/serviceImpl/TestServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/data-service/target/classes/com/example/dataService/serviceImpl/TestServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data2-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data2-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/Data2ServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/Data2ServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/controller/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/mapper/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/mapper/ProductMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/mapper/ProductMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/mapper/ProductMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/service/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/service/TestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/serviceImpl/TestServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service/serviceImpl/TestServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data2-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/data2-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data2-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/data2-service/src/main/resources/bootstrap.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/WebServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/WebServiceApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/controller/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/openFeign/Data2ServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/openFeign/Data2ServiceClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/openFeign/DataServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/openFeign/DataServiceClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/resources/bootstrap.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/target/classes/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-service/target/classes/com/example/webService/controller/TestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/target/classes/com/example/webService/controller/TestController.class" afterDir="false" />
     </list>
@@ -107,41 +80,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;20&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/hongchenjie/Documents/root/workSpace/developerEnvironment/IdeaProjects/spring-cloud-demo/web-service/src/main/java/com/example/webService&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;496b0f6110b4825aa070c024f719420b&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "20",
+    "last_opened_file_path": "/Users/hongchenjie/Documents/root/workSpace/developerEnvironment/IdeaProjects/spring-cloud-demo/gateWay-service/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "spring.configuration.checksum": "496b0f6110b4825aa070c024f719420b",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gateWay-service/src/main/resources" />
       <recent name="$PROJECT_DIR$/web-service/src/main/java/com/example/webService" />
       <recent name="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service" />
       <recent name="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/openFeign" />
       <recent name="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService" />
-      <recent name="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/openFeign" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/mapper" />
@@ -160,7 +133,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.WebServiceApplication">
+  <component name="RunManager" selected="Spring Boot.GateWayApplication">
     <configuration name="data-service-0.0.1-SNAPSHOT.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/data-service/target/data-service-0.0.1-SNAPSHOT.jar" />
       <method v="2" />
@@ -193,6 +166,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GateWayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="gateWay-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.gateWayService.GateWayApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.gateWayService.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SpringCloudDemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="spring-cloud-demo" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.springclouddemo.SpringCloudDemoApplication" />
@@ -214,14 +200,16 @@
       <item itemvalue="Spring Boot.Data2ServiceApplication" />
       <item itemvalue="Spring Boot.SpringCloudDemoApplication" />
       <item itemvalue="Spring Boot.WebServiceApplication" />
+      <item itemvalue="Spring Boot.GateWayApplication" />
       <item itemvalue="Spring Boot.DataServiceApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.GateWayApplication" />
+        <item itemvalue="JAR Application.web-service-0.0.1-SNAPSHOT.jar" />
         <item itemvalue="Spring Boot.DataServiceApplication" />
         <item itemvalue="JAR Application.data-service-0.0.1-SNAPSHOT.jar" />
         <item itemvalue="JAR Application.data2-service-0.0.1-SNAPSHOT.jar" />
-        <item itemvalue="JAR Application.web-service-0.0.1-SNAPSHOT.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -252,7 +240,8 @@
       <workItem from="1688133882878" duration="3080000" />
       <workItem from="1688207819564" duration="11865000" />
       <workItem from="1688232849868" duration="2390000" />
-      <workItem from="1688290241359" duration="9289000" />
+      <workItem from="1688290241359" duration="9466000" />
+      <workItem from="1688405013099" duration="3416000" />
     </task>
     <task id="LOCAL-00001" summary="2023-6-26">
       <created>1687742340837</created>
@@ -303,7 +292,21 @@
       <option name="project" value="LOCAL" />
       <updated>1688026610932</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="2023-7-2">
+      <created>1688299909462</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1688299909462</updated>
+    </task>
+    <task id="LOCAL-00009" summary="2023-7-2">
+      <created>1688299915988</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1688299915988</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,6 +317,7 @@
     <MESSAGE value="2023-6-27" />
     <MESSAGE value="2023-6-29" />
     <MESSAGE value="2023-6-29-2" />
-    <option name="LAST_COMMIT_MESSAGE" value="2023-6-29-2" />
+    <MESSAGE value="2023-7-2" />
+    <option name="LAST_COMMIT_MESSAGE" value="2023-7-2" />
   </component>
 </project>

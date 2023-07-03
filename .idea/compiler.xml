@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="data-service" />
+        <module name="gateWay-service" />
         <module name="data2-service" />
         <module name="entity-class" />
         <module name="common-module" />
@@ -24,6 +25,7 @@
       <module name="data-service" options="-parameters" />
       <module name="data2-service" options="-parameters" />
       <module name="entity-class" options="-parameters" />
+      <module name="gateWay-service" options="-parameters" />
       <module name="spring-cloud-demo" options="" />
       <module name="web-service" options="-parameters" />
     </option>
