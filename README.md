@@ -6,6 +6,8 @@
 maven 父子项目；
 项目集成内容：
 Spring Data JPA；Spring Data JDBC：mybatis(annotation + xml)；
+Spring data Redis (lettuce)  key-value(no sql db) 数据库 临时存储；
+Spring data elasticsearch  索引搜索引擎：stringQuery(搜索)；
 Spring Session：httpSession 整合 Spring Data Redis 实现；
 Spring Cloud OpenFeign：微服务接口调用及负载均衡。负载均衡由Spring Cloud Loadbalancer nacos实现；
 Spring Cloud Stream：RocketMQ Binder Alibaba实现的事件驱动 （Event-driven）。项目中已实现的主题（topic）为广播模式（broadcast）、顺序消费模式（orderly）；
