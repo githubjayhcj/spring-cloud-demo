@@ -36,10 +36,18 @@ spring:
   # spring Session store type.
   session:
     store-type: redis
-  data:
+  data: # spring data redis
     redis:
       host: localhost # Redis server host.
       port: 6379 # Redis server port.
+      database: 0
+
+  #spring data Elasticsearch
+  elasticsearch:
+    uris: https://localhost:9200
+    socket-timeout: 30s
+    username: elastic
+    password: 8K-Kcr2f*fUBLNh5I5u0
 
 # seata
 seata:

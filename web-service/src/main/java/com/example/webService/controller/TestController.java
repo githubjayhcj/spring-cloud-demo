@@ -12,9 +12,12 @@ import com.alibaba.csp.sentinel.slots.block.degrade.DegradeRuleManager;
 import com.alibaba.csp.sentinel.slots.block.degrade.circuitbreaker.CircuitBreakerStrategy;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRuleManager;
+import com.example.webService.ESdao.MyElasticDao;
+import com.example.webService.ESrepository.MyElasticRepository;
 import com.example.webService.FlowRuleAndDegradeRule.DefaultRule;
 import com.example.webService.blockHandleAndFallBack.DefaultExceptionUtil;
 import com.example.webService.common.DataResult;
+import com.example.webService.entity.MyElastic;
 import com.example.webService.entity.Product;
 import com.example.webService.entity.SimpleMsg;
 import com.example.webService.entity.User;
@@ -24,7 +27,6 @@ import com.example.webService.service.TestService;
 import com.example.webService.service.TransService;
 import io.seata.core.context.RootContext;
 import io.seata.core.exception.TransactionException;
-import io.seata.spring.annotation.GlobalTransactional;
 import io.seata.tm.api.GlobalTransaction;
 import io.seata.tm.api.GlobalTransactionContext;
 import jakarta.servlet.http.HttpServletRequest;
@@ -32,16 +34,27 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.stream.function.StreamBridge;
+import org.springframework.data.domain.*;
+import org.springframework.data.elasticsearch.annotations.Query;
+import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
+import org.springframework.data.elasticsearch.core.IndexOperations;
+import org.springframework.data.elasticsearch.core.SearchHit;
+import org.springframework.data.elasticsearch.core.SearchHits;
+import org.springframework.data.elasticsearch.core.query.HighlightQuery;
+import org.springframework.data.elasticsearch.core.query.Order;
+import org.springframework.data.elasticsearch.core.query.StringQuery;
+import org.springframework.data.elasticsearch.core.query.highlight.Highlight;
+import org.springframework.data.elasticsearch.core.query.highlight.HighlightField;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.GenericMessage;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @RestController
 public class TestController {
@@ -61,7 +74,6 @@ public class TestController {
     @Autowired
     private Data2ServiceClient data2ServiceClient;
 
-
     @Autowired
     private TestService testService;
 
@@ -70,6 +82,22 @@ public class TestController {
 
     @Autowired
     private StreamBridge streamBridge;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
+
+    @Autowired
+    private ElasticsearchOperations elasticsearchOperations;
+
+    @Autowired
+    private MyElasticRepository myElasticRepository;
+
+    @Autowired
+    private MyElasticDao myElasticDao;
+
 
     @RequestMapping("/test")
     public String test(HttpServletRequest request) {
@@ -306,6 +334,121 @@ public class TestController {
         streamBridge.send("producer-out-0", msg);
         return "ok";
     }
+
+    @RequestMapping("/redis/{key}/{value}")
+    public String sendTopic(@PathVariable String key,@PathVariable String value) throws Exception{
+        System.out.println("key:"+key+"value:"+value);
+        this.stringRedisTemplate.opsForValue().set(key,value);
+        System.out.println(stringRedisTemplate.opsForValue().get(key));
+        return "redis value:"+stringRedisTemplate.opsForValue().get(key);
+
+//        this.redisTemplate.opsForValue().set(key,value);
+//        System.out.println(redisTemplate.opsForValue().get(key));
+//        return "redis value:"+redisTemplate.opsForValue().get(key);
+    }
+
+    //    elasticsearchOperations  操作
+    @RequestMapping("/es/{id}/{name}/{desc}")
+    public String es(@PathVariable int id, @PathVariable String name,@PathVariable String desc){
+        System.out.println("elasticsearch :"+this.elasticsearchOperations);
+        IndexOperations ido = this.elasticsearchOperations.indexOps(MyElastic.class);
+        if (!ido.exists()){
+            ido.create();
+        }
+        MyElastic myElastic = new MyElastic();
+        myElastic.setId(id);
+        myElastic.setName(name);
+        myElastic.setSubName("subname-"+name);
+        myElastic.setContent("content-"+desc);
+        myElastic.setDescription(desc);
+        myElastic.setCreateDate(new Date());
+        myElastic.setUpdateDate(new Date());
+        this.elasticsearchOperations.save(myElastic);
+        System.out.println("index :"+myElastic.toString());
+        return "save es ok";
+    }
+
+    //
+    @RequestMapping("/esto/{id}/{name}/{desc}")
+    public String esto(@PathVariable int id, @PathVariable String name,@PathVariable String desc){
+
+        MyElastic myElastic = new MyElastic();
+        myElastic.setId(id);
+        myElastic.setName(name);
+        myElastic.setSubName("subname-"+name);
+        myElastic.setContent("content-"+desc);
+        myElastic.setDescription(desc);
+        myElastic.setCreateDate(new Date());
+        myElastic.setUpdateDate(new Date());
+        this.myElasticRepository.save(myElastic);
+        System.out.println("index :"+myElastic.toString());
+        return "save es ok";
+    }
+
+    @RequestMapping("/getes/{id}")
+    public String getes(@PathVariable int id){
+        MyElastic myElastic = this.elasticsearchOperations.get(String.valueOf(id),MyElastic.class);
+        System.out.println("myElastic name:"+myElastic.getName());
+        return myElastic.toString();
+    }
+    @RequestMapping("/getName/{name}")
+    public String getName(@PathVariable String name){
+
+        Pageable pageable = PageRequest.of(0,5);
+
+        // 分页查询
+        Page<MyElastic> page = this.myElasticRepository.findByName(name,pageable);
+        List<MyElastic> myElastics = page.getContent();
+        for (MyElastic item : myElastics){
+            System.out.println("item::"+item.toString());
+        }
+
+        // 高亮(searchHit) 模糊查询
+        SearchHits<MyElastic> searchHits = this.myElasticRepository.findByNameHit(name);
+        List<SearchHit<MyElastic>> searchHitList = searchHits.getSearchHits();
+        for(SearchHit<MyElastic> searchHit : searchHitList){
+            System.out.println("myElastic : "+ searchHit.getContent().toString());
+            System.out.println("score : "+ searchHit.getScore());
+            Map<String, List<String>> map = searchHit.getHighlightFields();
+            for (Map.Entry<String,List<String>> entry : map.entrySet()){
+                System.out.println("entry key:"+entry.getKey()+" . entry value:"+entry.getValue());
+                List<String> values = entry.getValue();
+                Iterator<String> iterator = values.iterator();
+                while (iterator.hasNext()){
+                    System.out.println("value:"+iterator.next());
+                }
+            }
+        }
+
+
+
+        return "getName ok";
+    }
+
+    // 分页 + 高亮(searchHit) + 字段排序(id) 模糊查询
+    @RequestMapping("/hitPage/{name}/{page}/{size}")
+    public String hitPage(@PathVariable String name, @PathVariable int page, @PathVariable int size){
+        //分页对象  和原生DSL 语言分页存在差别  ： from , size
+        Pageable pageable = PageRequest.of(page,size);
+
+        // 排序
+        Sort sort = Sort.by(Sort.Direction.DESC,"id");
+
+        SearchHits<MyElastic> searchHits = myElasticDao.highlightPageSearch(name,pageable,sort);
+
+        List<SearchHit<MyElastic>> searchHitsList =  searchHits.getSearchHits();
+        for(SearchHit<MyElastic> searchHit : searchHitsList){
+            System.out.println("--"+searchHit.getContent().toString());
+            Map<String,List<String>> mapField =  searchHit.getHighlightFields();
+            for (Map.Entry<String,List<String>> entry : mapField.entrySet()){
+                System.out.println("hit key:"+entry.getKey());
+                System.out.println("hit value:"+entry.getValue());
+            }
+        }
+
+        return "hitPage ok";
+    }
+
 
 
 }
