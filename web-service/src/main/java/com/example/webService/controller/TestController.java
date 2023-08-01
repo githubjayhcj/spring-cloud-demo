@@ -37,6 +37,8 @@ import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.AuthorizationException;
 import org.apache.shiro.authz.annotation.RequiresRoles;
+import org.apache.shiro.crypto.SecureRandomNumberGenerator;
+import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
@@ -464,6 +466,22 @@ public class TestController {
 
 
     // shiro 登录
+    @PostMapping ("/register")
+    public DataResult<String> register(@RequestBody User user,HttpServletRequest request) {
+        System.out.println("user name:" + user.getName());
+        System.out.println("user password:" + user.getPassword());
+
+        // 生成随即盐
+        user.setSalt(new SecureRandomNumberGenerator().nextBytes().toString());
+        // 生成 hash code 加密字符码
+        user.setPassword(new SimpleHash("md5",user.getPassword(),user.getSalt(),2).toString());
+
+        DataResult<User> dataResult = dataServiceClient.saveUser(user);
+        System.out.println("save dataResult"+dataResult);
+
+        return new DataResult<String>("register ok","ok");
+    }
+
     @RequiresRoles("manager")
     @GetMapping ("/admin/adminPage")
     public DataResult<String> adminPage(HttpServletRequest request) {
@@ -512,6 +530,7 @@ public class TestController {
         System.out.println("hasRole :"+subject.hasRole("manager"));
         System.out.println("isPermitted :"+subject.isPermitted("add"));
         System.out.println("isRemembered :"+subject.isRemembered());
+
 
         return new DataResult<>("login2 OK");
     }

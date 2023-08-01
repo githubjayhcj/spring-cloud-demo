@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.AuthorizationException;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,12 @@ public class PageController {
         return "home";
     }
 
+    @RequestMapping("/registerPage")
+    public String register(Model model) throws Exception{
+
+        return "/register";
+    }
+
     @RequestMapping("/loginPage")
     public String login(Model model) throws Exception{
 
@@ -32,7 +39,8 @@ public class PageController {
         return "/error";
     }
 
-    @RequiresRoles("manager")
+//    @RequiresRoles("manager")
+    @RequiresPermissions("add")
     @RequestMapping("/admin/index")
     public String index(Model model, HttpServletRequest request) throws Exception{
         System.out.println("index page ...");

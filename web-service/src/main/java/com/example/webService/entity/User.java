@@ -1,9 +1,11 @@
 package com.example.webService.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
+
 
 
     private Integer id;
@@ -12,6 +14,11 @@ public class User implements Serializable {
     private String password;
 
     private String email;
+    private String salt;
+
+    private List<Role> roles;
+
+    private List<Permission> permissions;
 
     public User() {
     }
@@ -53,6 +60,30 @@ public class User implements Serializable {
         this.email = email;
     }
 
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
+    public List<Permission> getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(List<Permission> permissions) {
+        this.permissions = permissions;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -60,6 +91,9 @@ public class User implements Serializable {
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
+                ", salt='" + salt + '\'' +
+                ", roles=" + roles +
+                ", permissions=" + permissions +
                 '}';
     }
 }

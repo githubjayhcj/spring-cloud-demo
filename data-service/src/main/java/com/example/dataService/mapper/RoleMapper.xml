@@ -14,16 +14,16 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.dataService.mapper.UserMapper">
-    <select id="selectById" resultType="User" parameterType="_int">
-        select * from user where id = #{id}
+<mapper namespace="com.example.dataService.mapper.RoleMapper">
+    <select id="selectById" resultType="Role" parameterType="_int">
+        select * from role where id = #{id}
     </select>
 
-    <select id="selectByName" resultType="User" parameterType="string">
-        select * from user where name = #{name}
+    <select id="getRoleByUid" resultType="Role" parameterType="_int">
+        select * from role r where r.id in (
+            select ur.role_id from user_role ur where user_id = #{id}
+            )
     </select>
 
-    <insert id="insertUser" parameterType="User" >
-        insert into user (name,password,email,salt) values (#{name},#{password},#{email},#{salt})
-    </insert>
+
 </mapper>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <script type="text/javascript">
+
+        async function register(){
+            const name = document.getElementById("name").value;
+            const password = document.getElementById("password").value;
+            console.log("name:"+name+"  .password:"+password);
+            // fetch('/login/'+username+'/'+password,{
+            fetch('/register',{
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                method:"post",
+                body:JSON.stringify({
+                    name:name,
+                    password:password
+                })
+            }).then(res =>{
+                return res.json();
+            }).then(data =>{
+                console.log("data:"+JSON.stringify(data));
+                console.log("data:"+JSON.stringify(data.code));
+                //
+                if(data.code === 1){
+                    window.location.href = "/loginPage";
+                }
+            });
+        }
+
+
+    </script>
+</head>
+<body>
+
+    <h1>注册</h1>
+    <input id="name" name="name" type="text" value="evins" />
+    <br>
+    <input id="password" name="password" type="text" value="jayhcj" />
+    <br>
+    <button onclick="register()">注册</button>
+
+</body>
+</html>

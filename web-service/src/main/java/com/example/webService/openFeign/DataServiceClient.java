@@ -2,14 +2,15 @@ package com.example.webService.openFeign;
 
 
 import com.example.webService.common.DataResult;
+import com.example.webService.entity.Permission;
+import com.example.webService.entity.Role;
 import com.example.webService.entity.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Component
 @FeignClient(value = "data-service", fallback = DataServiceFallback.class, configuration = FeignConfiguration.class)
@@ -25,6 +26,12 @@ public interface DataServiceClient {
 
     @RequestMapping(value = "/getUserByName/{name}")
     DataResult<User> getUserByName(@PathVariable String name);
+
+    @GetMapping(value = "/getRolesByUid/{id}")
+    DataResult<List<Role>> getRolesByUid(@PathVariable int id);
+
+    @GetMapping(value = "/getPermsByUid/{id}")
+    DataResult<List<Permission>> getPermsByUid(@PathVariable int id);
 
 
 }
@@ -58,6 +65,16 @@ class DataServiceFallback implements DataServiceClient{
     @Override
     public DataResult getUserByName(String name) {
         return new DataResult<>(0,"getUserByName 失败 ，请稍后重试。");
+    }
+
+    @Override
+    public DataResult<List<Role>> getRolesByUid(int id) {
+        return new DataResult<>(0,"getRolesByUid 失败 ，请稍后重试。");
+    }
+
+    @Override
+    public DataResult<List<Permission>> getPermsByUid(int id) {
+        return new DataResult<>(0,"getRolesByUid 失败 ，请稍后重试。");
     }
 
 }

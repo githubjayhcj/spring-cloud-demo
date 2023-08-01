@@ -1,9 +1,13 @@
 package com.example.dataService.controller;
 
 import com.example.dataService.common.DataResult;
+import com.example.dataService.entity.Permission;
 import com.example.dataService.entity.Product;
+import com.example.dataService.entity.Role;
 import com.example.dataService.entity.User;
 import com.example.dataService.jpaRepoisitory.UserRepository;
+import com.example.dataService.mapper.PermissionMapper;
+import com.example.dataService.mapper.RoleMapper;
 import com.example.dataService.mapper.UserMapper;
 import com.example.dataService.openFeign.Data2ServiceClient;
 import com.example.dataService.service.TestService;
@@ -46,6 +50,11 @@ public class TestController {
 
     @Autowired
     private Data2ServiceClient data2ServiceClient;
+
+    @Autowired
+    private RoleMapper roleMapper;
+    @Autowired
+    private PermissionMapper permissionMapper;
 
     @RequestMapping("/user")
     public String user(){
@@ -160,5 +169,27 @@ public class TestController {
         User user = new User();
         user = this.userMapper.selectByName(name);
         return new DataResult<User>("success.",user);
+    }
+
+
+    @GetMapping("/getRolesByUid/{id}")
+    public DataResult<List<Role>> getRolesByUid(@PathVariable int id){
+        System.out.println("id:"+id);
+        //Role roles = roleMapper.selectById(id);
+
+        List<Role> roles = roleMapper.getRoleByUid(id);
+        System.out.println("roles:"+roles);
+
+        return new DataResult<List<Role>>("success.",roles);
+    }
+
+    @GetMapping("/getPermsByUid/{id}")
+    public DataResult<List<Permission>> getPermsByUid(@PathVariable int id){
+        System.out.println("id:"+id);
+        //Role roles = roleMapper.selectById(id);
+        List<Permission> permissions = permissionMapper.getPermsByUid(id);
+        System.out.println("permissions:"+permissions);
+
+        return new DataResult<List<Permission>>("success.",permissions);
     }
 }

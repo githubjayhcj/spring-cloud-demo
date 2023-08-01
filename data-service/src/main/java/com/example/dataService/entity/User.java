@@ -1,13 +1,12 @@
 package com.example.dataService.entity;
 
 import com.google.errorprone.annotations.DoNotMock;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.apache.catalina.LifecycleState;
 
 import java.io.Serializable;
 import java.lang.annotation.Documented;
+import java.util.List;
 
 @Entity // This tells Hibernate to make a table out of this class
 //@Table(name = "user")
@@ -23,6 +22,11 @@ public class User implements Serializable {
     private String password;
 
     private String email;
+    private String salt;
+    @Transient
+    private List<Role> roles;
+    @Transient
+    private List<Permission> permissions;
 
     public User() {
     }
@@ -64,6 +68,30 @@ public class User implements Serializable {
         this.email = email;
     }
 
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
+    public List<Permission> getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(List<Permission> permissions) {
+        this.permissions = permissions;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -71,6 +99,9 @@ public class User implements Serializable {
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
+                ", salt='" + salt + '\'' +
+                ", roles=" + roles +
+                ", permissions=" + permissions +
                 '}';
     }
 }
