@@ -23,6 +23,9 @@ public interface DataServiceClient {
     @PostMapping(value = "/erro")
     DataResult erro();
 
+    @RequestMapping(value = "/getUserByName/{name}")
+    DataResult<User> getUserByName(@PathVariable String name);
+
 
 }
 
@@ -51,4 +54,10 @@ class DataServiceFallback implements DataServiceClient{
     public DataResult erro() {
         return new DataResult<>(0,"erro 失败 ，请稍后重试。");
     }
+
+    @Override
+    public DataResult getUserByName(String name) {
+        return new DataResult<>(0,"getUserByName 失败 ，请稍后重试。");
+    }
+
 }

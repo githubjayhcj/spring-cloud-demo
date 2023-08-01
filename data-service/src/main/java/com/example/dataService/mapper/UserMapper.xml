@@ -19,6 +19,10 @@
         select * from user where id = #{id}
     </select>
 
+    <select id="selectByName" resultType="User" parameterType="string">
+        select * from user where name = #{name}
+    </select>
+
     <insert id="insertUser" parameterType="User" >
         insert into user (name,email) values (#{name},#{email})
     </insert>

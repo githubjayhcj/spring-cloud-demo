@@ -5,19 +5,30 @@ package com.example.webService.serviceImpl;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
+import com.example.webService.common.DataResult;
+import com.example.webService.entity.User;
+import com.example.webService.openFeign.DataServiceClient;
 import com.example.webService.service.TestService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
 public class TestServiceImpl implements TestService {
 
+    @Autowired
+    private DataServiceClient dataServiceClient;
 
     @SentinelResource(value = "resourceA",blockHandler = "exceptionHandler", fallback = "helloFallback")
     @Override
     public String resourceA() {
 //        throw new RuntimeException("resourceA failed");
         return "this is resourceA";
+    }
+
+    @Override
+    public DataResult<User> getUserByName(String name) {
+        return this.dataServiceClient.getUserByName(name);
     }
 
     // Block 异常处理函数，参数最后多一个 BlockException，其余与原函数一致.

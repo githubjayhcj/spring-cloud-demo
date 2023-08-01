@@ -49,6 +49,7 @@ spring:
     username: elastic
     password: 8K-Kcr2f*fUBLNh5I5u0
 
+
 # seata
 seata:
   config:
@@ -92,4 +93,12 @@ management:
 feign:
   sentinel:
     enabled: true
+
+# shiro  因为非 shiro-spring-boot-web-start整合 ，需手动启动一些配置
+shiro:
+  web:
+    enabled: true
+  annotations:
+    enabled: true
+#  userNativeSessionManager: true
 

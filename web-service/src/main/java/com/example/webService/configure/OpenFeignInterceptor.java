@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class OpenFeignInterceptor implements RequestInterceptor {
+    // openFeign 手动传递 seata 全局事务管理 XID;
     @Override
     public void apply(RequestTemplate requestTemplate) {
         System.err.println("openFeign requestTemplate:"+requestTemplate.toString());

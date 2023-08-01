@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <script type="text/javascript">
+
+        async function login(){
+            const name = document.getElementById("name").value;
+            const password = document.getElementById("password").value;
+            console.log("name:"+name+"  .password:"+password);
+            // fetch('/login/'+username+'/'+password,{
+            fetch('/login',{
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                method:"post",
+                body:JSON.stringify({
+                    name:name,
+                    password:password
+                })
+            }).then(res =>{
+                return res.json();
+            }).then(data =>{
+                console.log("data:"+JSON.stringify(data));
+                console.log("data:"+JSON.stringify(data.code));
+                //
+                if(data.code === 1){
+                    window.location.href = "/admin/index";
+                }
+            });
+        }
+
+
+    </script>
+</head>
+<body>
+
+    <h1>登录</h1>
+    <input id="name" name="name" type="text" value="evins" />
+    <br>
+    <input id="password" name="password" type="text" value="jayhcj" />
+    <br>
+    <button onclick="login()">登录</button>
+
+</body>
+</html>

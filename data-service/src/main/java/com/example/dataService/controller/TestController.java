@@ -153,4 +153,12 @@ public class TestController {
         List<DataResult> dataResultList = testService.transSave(user,product);
         return dataResultList;
     }
+
+    @GetMapping("/getUserByName/{name}")
+    public DataResult<User> selectByName(@PathVariable String name){
+        System.out.println("selectByName:"+name);
+        User user = new User();
+        user = this.userMapper.selectByName(name);
+        return new DataResult<User>("success.",user);
+    }
 }

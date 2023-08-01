@@ -13,6 +13,7 @@ public interface UserMapper {
     public User getById(@Param("id") int id);
 
     public User selectById(int id);
+    public User selectByName(String name);
 
     int insertUser(User user);
 }

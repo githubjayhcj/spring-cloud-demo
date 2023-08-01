@@ -31,28 +31,28 @@ import io.seata.tm.api.GlobalTransaction;
 import io.seata.tm.api.GlobalTransactionContext;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authz.AuthorizationException;
+import org.apache.shiro.authz.annotation.RequiresRoles;
+import org.apache.shiro.mgt.SecurityManager;
+import org.apache.shiro.session.Session;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.data.domain.*;
-import org.springframework.data.elasticsearch.annotations.Query;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.IndexOperations;
 import org.springframework.data.elasticsearch.core.SearchHit;
 import org.springframework.data.elasticsearch.core.SearchHits;
-import org.springframework.data.elasticsearch.core.query.HighlightQuery;
-import org.springframework.data.elasticsearch.core.query.Order;
-import org.springframework.data.elasticsearch.core.query.StringQuery;
-import org.springframework.data.elasticsearch.core.query.highlight.Highlight;
-import org.springframework.data.elasticsearch.core.query.highlight.HighlightField;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.GenericMessage;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
@@ -450,5 +450,69 @@ public class TestController {
     }
 
 
+    @RequestMapping("/login/{username}/{password}")
+    public DataResult login(@PathVariable String username, @PathVariable String password) {
+        System.out.println("username:"+username+" ; password:"+password);
+        DataResult<User> dataResult = dataServiceClient.getUserByName(username);
+        User user = dataResult.getData();
+        System.out.println("user:"+user);
+//        return dataServiceClient.getUserByName(username);
+//        return testService.getUserByName(username);
 
+        return dataResult;
+    }
+
+
+    // shiro 登录
+    @RequiresRoles("manager")
+    @GetMapping ("/admin/adminPage")
+    public DataResult<String> adminPage(HttpServletRequest request) {
+        System.out.println("/admin/adminPage...");
+
+        Subject subject = SecurityUtils.getSubject();
+
+        System.out.println("isAuthentication :"+subject.isAuthenticated());
+        System.out.println("hasRole :"+subject.hasRole("manager"));
+        System.out.println("isPermitted :"+subject.isPermitted("add"));
+        System.out.println("isRemembered :"+subject.isRemembered());
+
+        return new DataResult<String>("OK","adminPage 需要登录 isLogin:"+subject.isAuthenticated());
+
+
+    }
+    @PostMapping ("/login")
+    public DataResult<String> login2(@RequestBody User user,HttpServletRequest request) {
+        System.out.println("user name:"+user.getName());
+        System.out.println("user password:"+user.getPassword());
+//    @GetMapping ("/login/{name}/{password}")
+//    public DataResult<String> login2(@PathVariable String name, @PathVariable String password,HttpServletRequest request) {
+//        System.out.println("user name:"+name);
+//        System.out.println("user password:"+password);
+//        User user = new User();
+//        user.setName(name);
+//        user.setPassword(password);
+
+        Subject subject = SecurityUtils.getSubject();
+
+        try {
+            UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(user.getName(),user.getPassword());
+            usernamePasswordToken.setRememberMe(true);
+
+            subject.login(usernamePasswordToken);
+
+        }catch (UnknownAccountException e){
+            System.err.println("用户名异常:"+e);
+            return new DataResult<>(0,"用户名异常",e.toString());
+        }catch (AuthenticationException e){
+            System.err.println("用户登录验证异常:"+e);
+            return new DataResult<>(0,"用户名异常",e.toString());
+        }
+
+        System.out.println("isAuthentication :"+subject.isAuthenticated());
+        System.out.println("hasRole :"+subject.hasRole("manager"));
+        System.out.println("isPermitted :"+subject.isPermitted("add"));
+        System.out.println("isRemembered :"+subject.isRemembered());
+
+        return new DataResult<>("login2 OK");
+    }
 }

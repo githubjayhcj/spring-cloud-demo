@@ -29,6 +29,10 @@ spring:
 # 日志
 logging:
   level:
+    org:
+      springframework:
+        web: debug
+    # alibaba
     com:
       alibaba:
         cloud:
