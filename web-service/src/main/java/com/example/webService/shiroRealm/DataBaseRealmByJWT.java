@@ -16,17 +16,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @ClassName: DataBaseRealm
  * @Author: hong-chen-jie-(Evins) hongchenjie 
  * @Data: 2023/7/29 18:31 
  * @Version: 1.0.0
- * @Description: TODO
+ * @Description: shiro整合JWT - json web token
+ * 修改登录验证逻辑，直接生成 token 进行 subject.login 登录
  */
 @Component
-public class DataBaseRealm extends AuthorizingRealm {
+public class DataBaseRealmByJWT extends AuthorizingRealm {
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
@@ -35,7 +39,7 @@ public class DataBaseRealm extends AuthorizingRealm {
     private TestService testService;
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        System.out.println("in doGetAuthorizationInfo...");
+        System.out.println("in DataBaseRealmByJWT doGetAuthorizationInfo...");
         String username = (String) principalCollection.getPrimaryPrincipal();
         System.out.println("username:"+username);
         //授权对象
@@ -70,38 +74,15 @@ public class DataBaseRealm extends AuthorizingRealm {
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        System.out.println("in doGetAuthenticationInfo......");
+        System.out.println("in DataBaseRealmByJWT doGetAuthenticationInfo......");
+
         UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken) authenticationToken;
 
-        String username = usernamePasswordToken.getUsername();
-        String password = new String(usernamePasswordToken.getPassword());
-        System.out.println("username:"+username+";password:"+password);
+        String tokenByusername = usernamePasswordToken.getUsername();
+        String tokenBypassword = new String(usernamePasswordToken.getPassword());
+        System.out.println("token byname:"+tokenByusername+";token bypassword:"+tokenBypassword);
 
-        DataResult<User> dataResult = testService.getUserByName(username);
-        System.out.println("dataResult:"+dataResult.toString());
-        if(dataResult.getCode() > 0){
-            User user = dataResult.getData();
-            if (user != null){
-                // 编码
-                String encodePW = new SimpleHash("md5",password,user.getSalt(),2).toString();
-                // 匹配
-                if(user.getPassword().equals(encodePW)){
-                    System.out.println("return SimpleAuthenticationInfo...");
-                    // 用户信息缓存入 redis
-//                    this.stringRedisTemplate.opsForValue().set("user", JSON.toJSONString(user));
-                    // 只要传入SimpleAuthenticationInfo 中的值相同，两次重复登录(subject.login()) , 并不会在redis中生成两条相同的session（包含subject对象）值
-                    return new SimpleAuthenticationInfo(username,password,getName());
-                }else {
-                    System.err.println("登录密码错误！");
-                    throw new AuthenticationException();
-                }
-            }else {
-                System.err.println("用户名不存在:"+username);
-                throw new UnknownAccountException();
-            }
-        }else {
-            System.err.println("查询 api 异常："+dataResult.getMessage());
-            throw new AuthenticationException();
-        }
+        // 只要传入SimpleAuthenticationInfo 中的值相同，两次重复登录(subject.login()) , 并不会在redis中生成两条相同的session（包含subject对象）值
+        return new SimpleAuthenticationInfo(tokenByusername,tokenBypassword,getName());
     }
 }

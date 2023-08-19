@@ -12,6 +12,7 @@ import com.alibaba.csp.sentinel.slots.block.degrade.DegradeRuleManager;
 import com.alibaba.csp.sentinel.slots.block.degrade.circuitbreaker.CircuitBreakerStrategy;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRuleManager;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.example.webService.ESdao.MyElasticDao;
 import com.example.webService.ESrepository.MyElasticRepository;
 import com.example.webService.FlowRuleAndDegradeRule.DefaultRule;
@@ -25,17 +26,21 @@ import com.example.webService.openFeign.Data2ServiceClient;
 import com.example.webService.openFeign.DataServiceClient;
 import com.example.webService.service.TestService;
 import com.example.webService.service.TransService;
+import com.example.webService.utils.JWTutils;
+import io.netty.handler.codec.base64.Base64Encoder;
 import io.seata.core.context.RootContext;
 import io.seata.core.exception.TransactionException;
 import io.seata.tm.api.GlobalTransaction;
 import io.seata.tm.api.GlobalTransactionContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.UnknownAccountException;
-import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationException;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.SimpleHash;
@@ -56,9 +61,11 @@ import org.springframework.messaging.Message;
 import org.springframework.messaging.support.GenericMessage;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.*;
 
 @RestController
+@CrossOrigin // 跨域
 public class TestController {
 
     @Value("${server.port}")
@@ -99,6 +106,9 @@ public class TestController {
 
     @Autowired
     private MyElasticDao myElasticDao;
+
+    @Autowired
+    private JWTutils jwTutils;
 
 
     @RequestMapping("/test")
@@ -391,7 +401,7 @@ public class TestController {
     public String getes(@PathVariable int id){
         MyElastic myElastic = this.elasticsearchOperations.get(String.valueOf(id),MyElastic.class);
         System.out.println("myElastic name:"+myElastic.getName());
-        return myElastic.toString();
+        return myElastic.toString()+"---port:"+serverPort;
     }
     @RequestMapping("/getName/{name}")
     public String getName(@PathVariable String name){
@@ -465,25 +475,32 @@ public class TestController {
     }
 
 
-    // shiro 登录
+    // 以下为  shiro 登录 相关方法
     @PostMapping ("/register")
-    public DataResult<String> register(@RequestBody User user,HttpServletRequest request) {
+    public DataResult<String> register(@RequestBody User user,HttpServletRequest request,HttpSession session) {
         System.out.println("user name:" + user.getName());
         System.out.println("user password:" + user.getPassword());
+
+        System.out.println("session attri name:"+session.getAttribute("name"));
+        if(session.getAttribute("name") == null){
+            session.setAttribute("name",user.getName());
+        }
 
         // 生成随即盐
         user.setSalt(new SecureRandomNumberGenerator().nextBytes().toString());
         // 生成 hash code 加密字符码
         user.setPassword(new SimpleHash("md5",user.getPassword(),user.getSalt(),2).toString());
 
-        DataResult<User> dataResult = dataServiceClient.saveUser(user);
+//        DataResult<User> dataResult = dataServiceClient.saveUser(user);
+        DataResult<User> dataResult = new DataResult<>();
         System.out.println("save dataResult"+dataResult);
 
         return new DataResult<String>("register ok","ok");
     }
 
-    @RequiresRoles("manager")
+
     @GetMapping ("/admin/adminPage")
+//    @RequiresRoles("manager")
     public DataResult<String> adminPage(HttpServletRequest request) {
         System.out.println("/admin/adminPage...");
 
@@ -494,12 +511,12 @@ public class TestController {
         System.out.println("isPermitted :"+subject.isPermitted("add"));
         System.out.println("isRemembered :"+subject.isRemembered());
 
-        return new DataResult<String>("OK","adminPage 需要登录 isLogin:"+subject.isAuthenticated());
+        return new DataResult<String>("OK","adminPage , isLogin:"+subject.isAuthenticated()+"; port:"+serverPort);
 
 
     }
     @PostMapping ("/login")
-    public DataResult<String> login2(@RequestBody User user,HttpServletRequest request) {
+    public DataResult<String> login2(@RequestBody User user, HttpServletRequest request, HttpServletResponse response) {
         System.out.println("user name:"+user.getName());
         System.out.println("user password:"+user.getPassword());
 //    @GetMapping ("/login/{name}/{password}")
@@ -530,8 +547,137 @@ public class TestController {
         System.out.println("hasRole :"+subject.hasRole("manager"));
         System.out.println("isPermitted :"+subject.isPermitted("add"));
         System.out.println("isRemembered :"+subject.isRemembered());
+        //String sessionId = (String) subject.getSession().getId();
+        //System.out.println("sessionId :"+sessionId);
+        //String session = Base64.getEncoder().encodeToString(sessionId.getBytes());
+        //System.out.println("cookie SESSION:"+session);
+
+        return new DataResult<>("login2 OK ; port:"+serverPort);
+    }
 
 
-        return new DataResult<>("login2 OK");
+
+    // JWT (json web token)
+    @PostMapping("/jwtLogin")
+    public DataResult jwtLogin(@RequestBody User user,HttpServletRequest request){
+        System.out.println("jwtLogin ....");
+        Map<String,Object> payLoad = new HashMap<>();
+        payLoad.put("name",user.getName());
+        payLoad.put("password",user.getPassword());
+        //
+        String token = jwTutils.createJWT(payLoad);
+        System.out.println("");
+
+        return new DataResult("ok",token);
+    }
+    @PostMapping("/jwtPost")
+    public DataResult jwtPost(@RequestBody User user,HttpServletRequest request){
+        System.out.println("jwtPost ....");
+//        String token = request.getHeader("Authorization");
+//        token = token.substring(new String("Bearer").length()+1);
+//        System.out.println("token:"+token);
+//        //
+//        DecodedJWT decodedJWT = jwTutils.decodeAndVerifyToken(token);
+//        System.out.println("decodedJWT:"+decodedJWT.getClaims());
+        return new DataResult("ok");
+    }
+
+    /*
+    * JWT 整合 shiro 思想:
+    * 将 token 是否有效作为验证用户是否登录的凭据。
+    * 登录成功签发token。（可选：将token通过subject.login 传入realm 进行直接登录(生成登录状态，会在redis中生成包含 subject 的 session 数据)）
+    * 而后每次访问都提交 token ，并在 shiroFilter 中校验 token ，token 有效则执行 subject.login 生成登录状态（后续 controller 权限验证），无效则直接放行。
+    * */
+    @PostMapping("/jwtShiroLogin")
+    public DataResult jwtShiroLogin(@RequestBody User user,HttpServletRequest request,HttpServletResponse response){
+        System.out.println("jwtShiroLogin user:"+user);
+
+        DataResult<User> dataResult = testService.getUserByName(user.getName());
+        System.out.println("dataResult:"+dataResult.toString());
+
+        DataResult<Object> result = new DataResult();
+        if(dataResult.getCode() > 0){
+            User dbUser = dataResult.getData();
+            if (dbUser != null){
+                // 编码
+                String encodePW = new SimpleHash("md5",user.getPassword(),dbUser.getSalt(),2).toString();
+                System.err.println("encodePW："+encodePW);
+                // 匹配
+                if(dbUser.getPassword().equals(encodePW)){
+                    System.out.println("验证通过，生成token ，执行subject.login 登录验证，进入 SimpleAuthenticationInfo 直接登录...");
+                    //
+                    Map<String,Object> payLoad = new HashMap<>();
+                    payLoad.put("name",user.getName());
+                    payLoad.put("password",user.getPassword());
+                    //
+                    Subject subject = SecurityUtils.getSubject();
+                    //String sessionId = (String) subject.getSession().getId();
+                    //String session = Base64.getEncoder().encodeToString(sessionId.getBytes());
+
+                    String token = jwTutils.createJWT(payLoad);
+                    System.out.println("token:"+token);
+                    // 可选（登录时可无需创建登录状态）
+                    UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(token,token);
+
+                    subject.login(usernamePasswordToken);
+                    //
+                    System.err.println("登录成功！");
+                    System.out.println("isAuthenticationx :"+subject.isAuthenticated());
+                    System.out.println("hasRolex :"+subject.hasRole("manager"));
+                    System.out.println("isPermittedx :"+subject.isPermitted("add"));
+                    System.out.println("isRememberedx :"+subject.isRemembered());
+                    //result.setMessage(session);
+                    Map<String,Object> data = new HashMap<>();
+                    data.put("token",token);
+                    data.put("user",user);
+                    result.setData(data);
+
+                    //Cookie cookie = new Cookie("mysession",session);
+                    // Domain 和 Path 标识定义了 Cookie 的作用域：即允许 Cookie 应该发送给哪些 URL。
+                    //cookie.setDomain("http://localhost:8084");
+                    //cookie.setPath("/");
+                    //response.addCookie(cookie);
+                }else {
+                    System.err.println("登录密码错误！");
+                    throw new AuthenticationException();
+                }
+            }else {
+                result.setCode(0);
+                result.setMessage("用户名不存在！");
+            }
+        }else {
+            result.setCode(0);
+            result.setMessage("系统查询异常！");
+        }
+        return result;
+    }
+    @PostMapping("/admin/jwtShiroAdminData")
+    public DataResult jwtShiroAdminData(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("jwtShiroAdminData ..." );
+        //System.out.println("token:"+request.getHeader("Authorization"));
+        // 前后端分离，代码形式做权限验证、及验证异常提示
+        Subject subject = SecurityUtils.getSubject();
+        String token = (String) request.getAttribute("token");
+        subject.login(new UsernamePasswordToken(token,token));
+        if(!subject.isPermittedAll("add")){
+            System.out.println("没有 add 权限，无权访问：/admin/jwtShiroAdminData");
+            request.setAttribute("dataResult",new DataResult<String>("没有 add 权限，无权访问：/admin/jwtShiroAdminData","no authentication"));
+            request.getRequestDispatcher("/systemFeedBack").forward(request,response);
+        }
+
+        System.out.println("isAuthentication :"+subject.isAuthenticated());
+        System.out.println("hasRole :"+subject.hasRole("manager"));
+        System.out.println("isPermitted :"+subject.isPermitted("add"));
+
+        return new DataResult("jwtShiroAdminData ok");
+    }
+    // 需要登录 返回信息处理（前后端分离提示信息）
+    @PostMapping("/systemFeedBack")
+    public DataResult noAuthentication(HttpServletRequest request,DataResult dataResult) {
+
+        System.out.println("systemFeedBack...");
+        dataResult = (DataResult) request.getAttribute("dataResult");
+        System.out.println("dataResult:"+dataResult);
+        return dataResult;
     }
 }
