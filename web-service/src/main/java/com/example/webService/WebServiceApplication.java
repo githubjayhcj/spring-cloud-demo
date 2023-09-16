@@ -41,6 +41,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 @EnableRedisHttpSession
 // openFeign
 @EnableFeignClients
+// swagger api
 public class WebServiceApplication
 {
     private static final Logger log = LoggerFactory.getLogger(WebServiceApplication.class);

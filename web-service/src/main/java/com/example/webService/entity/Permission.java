@@ -20,7 +20,7 @@ public class Permission {
 
     @Override
     public String toString() {
-        return "Role{" +
+        return "Permission{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

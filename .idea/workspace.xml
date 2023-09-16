@@ -4,23 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5cc4f19-71bd-4405-b3c0-4f08f2d03c67" name="Changes" comment="2023-7-2">
-      <change afterPath="$PROJECT_DIR$/gateWay-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateWay-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateWay-service/src/main/java/com/example/gateWayService/GateWayApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateWay-service/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateWay-service/src/test/java/com/example/gateWayService/AppTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="d5cc4f19-71bd-4405-b3c0-4f08f2d03c67" name="Changes" comment="2023-8-19">
+      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/configure/SpringDocConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data2-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data2-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-service/target/classes/com/example/dataService/controller/TestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/data-service/target/classes/com/example/dataService/controller/TestController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/Filter/TokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/Filter/TokenFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/WebServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/WebServiceApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/entity/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/entity/Permission.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-service/target/classes/com/example/webService/controller/TestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/target/classes/com/example/webService/controller/TestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/target/classes/com/example/webService/controller/TestController.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +26,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -80,50 +77,58 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "20",
-    "last_opened_file_path": "/Users/hongchenjie/Documents/root/workSpace/developerEnvironment/IdeaProjects/spring-cloud-demo/gateWay-service/src/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "spring.configuration.checksum": "496b0f6110b4825aa070c024f719420b",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;20&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/hongchenjie/Documents/root/workSpace/developerEnvironment/IdeaProjects/spring-cloud-demo/web-service/src/main/java/com/example/webService/entity&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;fileTemplates&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;5d4d07f7a942849eb86a36e27e7e93b0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/entity" />
+      <recent name="$PROJECT_DIR$/web-service/src/main/resources/templates" />
+      <recent name="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/mapper" />
       <recent name="$PROJECT_DIR$/gateWay-service/src/main/resources" />
       <recent name="$PROJECT_DIR$/web-service/src/main/java/com/example/webService" />
-      <recent name="$PROJECT_DIR$/data2-service/src/main/java/com/example/data2Service" />
-      <recent name="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/openFeign" />
-      <recent name="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/mapper" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.example.data2Service.entity" />
+      <recent name="com.example.webService.shiroRealm" />
+      <recent name="com.example.dataService.mapper" />
       <recent name="com.example.dataService.entity" />
+      <recent name="com.example.data2Service.entity" />
       <recent name="com.example.webService.entity" />
-      <recent name="com.example.dataService" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -133,7 +138,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.GateWayApplication">
+  <component name="RunManager" selected="Spring Boot.WebServiceApplication">
     <configuration name="data-service-0.0.1-SNAPSHOT.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/data-service/target/data-service-0.0.1-SNAPSHOT.jar" />
       <method v="2" />
@@ -205,10 +210,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.GateWayApplication" />
-        <item itemvalue="JAR Application.web-service-0.0.1-SNAPSHOT.jar" />
         <item itemvalue="Spring Boot.DataServiceApplication" />
         <item itemvalue="JAR Application.data-service-0.0.1-SNAPSHOT.jar" />
+        <item itemvalue="JAR Application.web-service-0.0.1-SNAPSHOT.jar" />
+        <item itemvalue="Spring Boot.GateWayApplication" />
         <item itemvalue="JAR Application.data2-service-0.0.1-SNAPSHOT.jar" />
       </list>
     </recent_temporary>
@@ -242,6 +247,32 @@
       <workItem from="1688232849868" duration="2390000" />
       <workItem from="1688290241359" duration="9466000" />
       <workItem from="1688405013099" duration="3416000" />
+      <workItem from="1690337562128" duration="785000" />
+      <workItem from="1690518251615" duration="1938000" />
+      <workItem from="1690528226920" duration="2425000" />
+      <workItem from="1690530681183" duration="16029000" />
+      <workItem from="1690625958615" duration="27181000" />
+      <workItem from="1690694276462" duration="220000" />
+      <workItem from="1690770589522" duration="16016000" />
+      <workItem from="1690864047691" duration="13433000" />
+      <workItem from="1691347143201" duration="450000" />
+      <workItem from="1691406364778" duration="7509000" />
+      <workItem from="1691534222964" duration="5961000" />
+      <workItem from="1691605666477" duration="6926000" />
+      <workItem from="1691654768326" duration="4435000" />
+      <workItem from="1691694072432" duration="79858000" />
+      <workItem from="1692054224386" duration="9645000" />
+      <workItem from="1692275620363" duration="2771000" />
+      <workItem from="1692437847916" duration="840000" />
+      <workItem from="1692660819593" duration="736000" />
+      <workItem from="1693229865434" duration="15023000" />
+      <workItem from="1693341014799" duration="6208000" />
+      <workItem from="1693467153035" duration="2172000" />
+      <workItem from="1693591992189" duration="3660000" />
+      <workItem from="1693678862497" duration="2934000" />
+      <workItem from="1694760653190" duration="5551000" />
+      <workItem from="1694855092706" duration="2805000" />
+      <workItem from="1694858053752" duration="113000" />
     </task>
     <task id="LOCAL-00001" summary="2023-6-26">
       <created>1687742340837</created>
@@ -306,11 +337,50 @@
       <option name="project" value="LOCAL" />
       <updated>1688299915988</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="2023-8-1">
+      <created>1690864138668</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1690864138668</updated>
+    </task>
+    <task id="LOCAL-00011" summary="2023-8-1">
+      <created>1690877351084</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1690877351084</updated>
+    </task>
+    <task id="LOCAL-00012" summary="2023-8-1">
+      <created>1690877698989</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1690877698989</updated>
+    </task>
+    <task id="LOCAL-00013" summary="2023-8-19">
+      <created>1692437901351</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1692437901351</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="2023-6-26" />
@@ -318,6 +388,8 @@
     <MESSAGE value="2023-6-29" />
     <MESSAGE value="2023-6-29-2" />
     <MESSAGE value="2023-7-2" />
-    <option name="LAST_COMMIT_MESSAGE" value="2023-7-2" />
+    <MESSAGE value="2023-8-1" />
+    <MESSAGE value="2023-8-19" />
+    <option name="LAST_COMMIT_MESSAGE" value="2023-8-19" />
   </component>
 </project>

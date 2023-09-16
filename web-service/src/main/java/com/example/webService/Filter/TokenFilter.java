@@ -109,14 +109,16 @@ public class TokenFilter implements Filter {
                 //
                 UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(token,token);
                 Subject subject = SecurityUtils.getSubject();
+                subject.login(usernamePasswordToken);
+                req.setAttribute("subject",subject);
                 System.out.println("subject?:"+subject);
                 subject.login(usernamePasswordToken);
-//                //
+                //
                 System.out.println("is login?:"+subject.isAuthenticated());
-                System.out.println("is permisstion?:"+subject.isPermitted("add"));
+                System.out.println("is permission?:"+subject.isPermitted("add"));
                 //
                 req.setAttribute("token",token);
-                req.setAttribute("upToken",token);
+                //req.setAttribute("upToken",token);
                 chain.doFilter(request,response);
             }catch (JWTVerificationException e){
                 System.out.println("JWTVerificationException...");
@@ -129,8 +131,10 @@ public class TokenFilter implements Filter {
             // 当前请求路径
             String requestUrl = "";
             //
+            System.out.println("request url: "+req.getServletPath());
             requestUrl = req.getRequestURI();
             System.out.println("request path: "+requestUrl);
+
             //
             List<String> requestPaths = Arrays.asList(requestUrl.split("/"));
             System.out.println("requestPaths: "+requestPaths);
@@ -177,6 +181,8 @@ public class TokenFilter implements Filter {
                                 break;
                             }
                             continue label;
+                        }else {
+                            break;
                         }
                     }
                 }
