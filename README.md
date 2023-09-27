@@ -20,4 +20,4 @@ JWT(json-web-token)网络令牌 整合 shiro 配合 Filter 做noSession 前后�
 SpringDoc（类Swagger-ui）：接口管理框架；
 视图技术：Spring Web MVC 中的View Technologies - Thymeleaf ，spring-boot-starter-thymeleaf实现
 
-*网络编程:io-netty（netty-all,version:4.0.56.final） 框架 main 方法测试；
+*网络编程:io-netty（netty-all,version:4.1.92.Final） 框架 main 方法测试；
