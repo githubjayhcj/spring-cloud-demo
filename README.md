@@ -16,5 +16,4 @@ Alibaba Nacos ：服务注册、服务探测、配置服务器；
 Alibaba Sentinel（适配了OpenFeign 组件）：资源定义、流量控制管理、服务熔断降级处理；
 Alibaba Seata：分布式事务管理；
 视图技术：Spring Web MVC 中的View Technologies - Thymeleaf ，spring-boot-starter-thymeleaf实现
-
 *网络编程:io-netty 框架 main 方法测试；
