@@ -16,5 +16,8 @@ Shiro ：用户登录验证、权限授权管理 框架;
 Alibaba Nacos ：服务注册、服务探测、配置服务器；
 Alibaba Sentinel（适配了OpenFeign 组件）：资源定义、流量控制管理、服务熔断降级处理；
 Alibaba Seata：分布式事务管理；
+JWT(json-web-token)网络令牌 整合 shiro 配合 Filter 做noSession 前后端分离权限验证（分布式微服务/远程接口调用）；
+SpringDoc（类Swagger-ui）：接口管理框架；
 视图技术：Spring Web MVC 中的View Technologies - Thymeleaf ，spring-boot-starter-thymeleaf实现
-*网络编程:io-netty 框架 main 方法测试；
+
+*网络编程:io-netty（netty-all,version:4.0.56.final） 框架 main 方法测试；
