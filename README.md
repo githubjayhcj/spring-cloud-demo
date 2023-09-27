@@ -1,5 +1,6 @@
 # spring-cloud-demo
 
+JDK 版本：20.0.1 ；
 基于：Spring Cloud 2022.0.0、Spring Boot 3.0.2
 数据库：mysql 8.0
 服务代理：nginx 负载均衡配置
