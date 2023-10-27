@@ -1,4 +1,4 @@
-package com.example.webService.MainTest;
+package com.example.webService.ioNetty.clientSocketUtil;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
@@ -7,15 +7,10 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import io.netty.handler.codec.string.StringDecoder;
-import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.timeout.IdleStateEvent;
-import io.netty.handler.timeout.IdleStateHandler;
 import lombok.extern.slf4j.Slf4j;
 
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.util.Scanner;
 
 /**
  * @ClassName: NettyClient
@@ -25,7 +20,7 @@ import java.util.Scanner;
  * @Description: TODO
  */
 @Slf4j
-public class NettyClient {
+public class NettyClientTest {
     public static void main(String[] args) {
 
         NioEventLoopGroup work = new NioEventLoopGroup();
@@ -94,6 +89,18 @@ public class NettyClient {
                                     //
                                     String str = new String(bytes,StandardCharsets.UTF_8);
                                     System.out.println("---client2---input read :"+str);
+
+                                    // 处理事件响应
+                                    ByteBuf buf = ctx.alloc().buffer();
+                                    String[] strings = str.split(",");
+                                    System.out.println("---client2---input read :"+strings);
+                                    // 返回格式标志 + 正文
+                                    str = "b,"+strings[0]+","+strings[1]+",响应处理结果";
+                                    // length
+                                    buf.writeInt(str.length());
+                                    // 正文
+                                    buf.writeBytes(str.getBytes(StandardCharsets.UTF_8));
+                                    ctx.channel().writeAndFlush(buf);
                                     // 关闭 channel
                                     //ctx.channel().close();
                                 }
@@ -120,7 +127,7 @@ public class NettyClient {
             //
             channelFuture = bootstrap.connect("localhost",9099).sync();
             //
-            for (int i =0;i<1;i++){
+            for (int i =0;i<0;i++){
                 Thread.sleep(2000);
                 ByteBuf buf = ByteBufAllocator.DEFAULT.buffer();
                 // content

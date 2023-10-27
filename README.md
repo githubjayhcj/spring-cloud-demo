@@ -21,3 +21,4 @@ SpringDoc（类Swagger-ui）：接口管理框架；
 视图技术：Spring Web MVC 中的View Technologies - Thymeleaf ，spring-boot-starter-thymeleaf实现
 
 *网络编程:io-netty（netty-all,version:4.1.92.Final） 框架 main 方法测试；
+支付宝网页支付：沙箱测试版

@@ -5,10 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5cc4f19-71bd-4405-b3c0-4f08f2d03c67" name="Changes" comment="2023-9-28">
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/Filter/TokenFilter_copy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/controller/NettySocketController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/entity/PendingEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/ioNetty/clientSocketUtil/ClientSocketUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/ioNetty/clientSocketUtil/NettyClientTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/ioNetty/serverSocket/NettyServerSocket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-service/src/test/java/com/example/webService/ApplicationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-service/src/test/java/com/example/webService/MainTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/Filter/TokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/Filter/TokenFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/MainTest/NettyClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/MainTest/NettyClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/MainTest/NettyServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/MainTest/NettyServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/WebServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/WebServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/resources/bootstrap.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,11 +130,11 @@
       <recent name="$PROJECT_DIR$/data-service/src/main/java/com/example/dataService/mapper" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.webService.ioNetty.clientSocketUtil" />
+      <recent name="com.example.webService.Filter" />
       <recent name="com.example.webService.MainTest" />
       <recent name="com.example.webService.shiroRealm" />
       <recent name="com.example.dataService.mapper" />
-      <recent name="com.example.dataService.entity" />
-      <recent name="com.example.data2Service.entity" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -130,7 +144,51 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.NettyClient">
+  <component name="RunManager" selected="Spring Boot.WebServiceApplication">
+    <configuration name="MainTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.webService.MainTest" />
+      <module name="web-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.webService.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NettyClient (2)" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.webService.MainTest.NettyClient" />
+      <module name="web-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.webService.MainTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NettyClient (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.webService.MainTest.NettyClient" />
+      <module name="web-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.webService.MainTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NettyClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.webService.MainTest.NettyClient" />
       <module name="web-service" />
@@ -144,54 +202,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NettyServer (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.webService.MainTest.NettyServer" />
+    <configuration name="ApplicationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="web-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.webService.MainTest.*" />
+          <option name="PATTERN" value="com.example.webService.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.example.webService" />
+      <option name="MAIN_CLASS_NAME" value="com.example.webService.ApplicationTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NettyServer (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.webService.MainTest.NettyServer" />
+    <configuration name="ApplicationTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="web-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.webService.MainTest.*" />
+          <option name="PATTERN" value="com.example.webService.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NettyServer (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.webService.MainTest.NettyServer" />
-      <module name="web-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.webService.MainTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NettyServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.webService.MainTest.NettyServer" />
-      <module name="web-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.webService.MainTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="PACKAGE_NAME" value="com.example.webService" />
+      <option name="MAIN_CLASS_NAME" value="com.example.webService.ApplicationTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -199,6 +236,20 @@
     <configuration name="Data2ServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="data2-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.data2Service.Data2ServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DataServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="data-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.dataService.DataServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GateWayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="gateWay-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.gateWayService.GateWayApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -218,22 +269,25 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.NettyClient (2)" />
+      <item itemvalue="Application.MainTest" />
+      <item itemvalue="Application.NettyClient (3)" />
       <item itemvalue="Application.NettyClient" />
-      <item itemvalue="Application.NettyServer" />
-      <item itemvalue="Application.NettyServer (2)" />
-      <item itemvalue="Application.NettyServer (3)" />
-      <item itemvalue="Application.NettyServer (4)" />
+      <item itemvalue="JUnit.ApplicationTest" />
+      <item itemvalue="JUnit.ApplicationTest.test" />
+      <item itemvalue="Spring Boot.DataServiceApplication" />
+      <item itemvalue="Spring Boot.GateWayApplication" />
       <item itemvalue="Spring Boot.Data2ServiceApplication" />
       <item itemvalue="Spring Boot.SpringCloudDemoApplication" />
       <item itemvalue="Spring Boot.WebServiceApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.NettyClient" />
-        <item itemvalue="Application.NettyServer" />
-        <item itemvalue="Application.NettyServer (3)" />
-        <item itemvalue="Application.NettyServer (4)" />
-        <item itemvalue="Application.NettyServer (2)" />
+        <item itemvalue="Application.MainTest" />
+        <item itemvalue="JUnit.ApplicationTest" />
+        <item itemvalue="JUnit.ApplicationTest.test" />
+        <item itemvalue="Application.NettyClient (2)" />
+        <item itemvalue="Application.NettyClient (3)" />
       </list>
     </recent_temporary>
   </component>
@@ -295,6 +349,16 @@
       <workItem from="1695735881751" duration="40967000" />
       <workItem from="1695838152305" duration="2168000" />
       <workItem from="1695842178421" duration="64000" />
+      <workItem from="1695866676035" duration="24282000" />
+      <workItem from="1695951962325" duration="23929000" />
+      <workItem from="1696078731648" duration="2015000" />
+      <workItem from="1696408268291" duration="1736000" />
+      <workItem from="1697177128521" duration="2113000" />
+      <workItem from="1697184757628" duration="1092000" />
+      <workItem from="1697380846512" duration="7211000" />
+      <workItem from="1697766639153" duration="11764000" />
+      <workItem from="1698302384366" duration="12096000" />
+      <workItem from="1698320963521" duration="17389000" />
     </task>
     <task id="LOCAL-00001" summary="2023-6-26">
       <created>1687742340837</created>

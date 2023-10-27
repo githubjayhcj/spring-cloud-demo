@@ -28,16 +28,20 @@ spring:
 
 # 日志
 logging:
+#  file:
+#    path: /Users/hongchenjie/Desktop/log
   level:
     org:
       springframework:
-        web: debug
+        web: info
     # alibaba
     com:
       alibaba:
         cloud:
           nacos:
-            client: debug
+            client: info
     #
-    org.springframework.context.support: debug
+    org.springframework.context.support: info
+    # 根系统日志
+    root: info
 
