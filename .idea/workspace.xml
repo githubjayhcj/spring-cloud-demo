@@ -4,25 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5cc4f19-71bd-4405-b3c0-4f08f2d03c67" name="Changes" comment="2023-9-28">
-      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/Filter/TokenFilter_copy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/controller/NettySocketController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/entity/PendingEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/ioNetty/clientSocketUtil/ClientSocketUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/ioNetty/clientSocketUtil/NettyClientTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/ioNetty/serverSocket/NettyServerSocket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/src/test/java/com/example/webService/ApplicationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-service/src/test/java/com/example/webService/MainTest.java" afterDir="false" />
+    <list default="true" id="d5cc4f19-71bd-4405-b3c0-4f08f2d03c67" name="Changes" comment="2023-10-27">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/Filter/TokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/Filter/TokenFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/MainTest/NettyClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/MainTest/NettyClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/MainTest/NettyServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/MainTest/NettyServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/WebServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/WebServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/java/com/example/webService/controller/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/src/main/resources/bootstrap.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -358,7 +342,8 @@
       <workItem from="1697380846512" duration="7211000" />
       <workItem from="1697766639153" duration="11764000" />
       <workItem from="1698302384366" duration="12096000" />
-      <workItem from="1698320963521" duration="17389000" />
+      <workItem from="1698320963521" duration="17670000" />
+      <workItem from="1698548500854" duration="2439000" />
     </task>
     <task id="LOCAL-00001" summary="2023-6-26">
       <created>1687742340837</created>
@@ -472,7 +457,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695837412500</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="2023-10-27">
+      <created>1698394069878</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1698394069878</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -483,7 +475,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -499,7 +503,8 @@
     <MESSAGE value="2023-8-19" />
     <MESSAGE value="2023-9-16" />
     <MESSAGE value="2023-9-28" />
-    <option name="LAST_COMMIT_MESSAGE" value="2023-9-28" />
+    <MESSAGE value="2023-10-27" />
+    <option name="LAST_COMMIT_MESSAGE" value="2023-10-27" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
