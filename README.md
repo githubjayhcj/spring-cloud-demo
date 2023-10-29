@@ -23,3 +23,5 @@ Alibaba Seata ：分布式事务管理；
 JWT ( json-web-token ) : 整合 shiro  配合 Filter  做 noSession  前后端分离权限验证 ；
 网络编程：基于nio socket 非阻塞式网络通信框架 io-netty（netty-all,version:4.1.92.Final） 的实现demo （项目部署阿里云，访问地址：http://47.99.139.38:8080/#/netty-socket ）
 Alipay（支付宝支付）：基于沙箱的web网页支付。
+
+# WebMagic(网络爬虫/数据爬取) ： 实现淘宝首页商品列表数据爬取 （test包中，WebMagicTest类）。

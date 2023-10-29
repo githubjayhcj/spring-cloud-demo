@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5cc4f19-71bd-4405-b3c0-4f08f2d03c67" name="Changes" comment="2023-10-27">
+      <change afterPath="$PROJECT_DIR$/web-service/src/test/java/com/example/webService/WebMagicTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web-service/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +130,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.WebServiceApplication">
+  <component name="RunManager" selected="Application.WebMagicTest">
     <configuration name="MainTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.webService.MainTest" />
       <module name="web-service" />
@@ -160,7 +162,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NettyClient (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="NettyClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.webService.MainTest.NettyClient" />
       <module name="web-service" />
       <extension name="coverage">
@@ -173,12 +175,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NettyClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.webService.MainTest.NettyClient" />
+    <configuration name="WebMagicTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.webService.WebMagicTest" />
       <module name="web-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.webService.MainTest.*" />
+          <option name="PATTERN" value="com.example.webService.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -254,8 +256,8 @@
     </configuration>
     <list>
       <item itemvalue="Application.NettyClient (2)" />
+      <item itemvalue="Application.WebMagicTest" />
       <item itemvalue="Application.MainTest" />
-      <item itemvalue="Application.NettyClient (3)" />
       <item itemvalue="Application.NettyClient" />
       <item itemvalue="JUnit.ApplicationTest" />
       <item itemvalue="JUnit.ApplicationTest.test" />
@@ -267,11 +269,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.WebMagicTest" />
         <item itemvalue="Application.MainTest" />
         <item itemvalue="JUnit.ApplicationTest" />
         <item itemvalue="JUnit.ApplicationTest.test" />
         <item itemvalue="Application.NettyClient (2)" />
-        <item itemvalue="Application.NettyClient (3)" />
       </list>
     </recent_temporary>
   </component>
@@ -343,7 +345,8 @@
       <workItem from="1697766639153" duration="11764000" />
       <workItem from="1698302384366" duration="12096000" />
       <workItem from="1698320963521" duration="17670000" />
-      <workItem from="1698548500854" duration="3111000" />
+      <workItem from="1698548500854" duration="3762000" />
+      <workItem from="1698588235806" duration="6344000" />
     </task>
     <task id="LOCAL-00001" summary="2023-6-26">
       <created>1687742340837</created>
@@ -471,7 +474,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698551015068</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="2023-10-27">
+      <created>1698551696998</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1698551696998</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
