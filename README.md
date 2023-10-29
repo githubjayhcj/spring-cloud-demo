@@ -22,4 +22,4 @@ Alibaba Seata ：分布式事务管理；
 视图技术：Spring Web MVC  中的 View Technologies -Thymeleaf ，spring-boot-starter-thymeleaf  实现 ;
 JWT ( json-web-token ) : 整合 shiro  配合 Filter  做 noSession  前后端分离权限验证 ；
 网络编程：基于nio socket 非阻塞式网络通信框架 io-netty（netty-all,version:4.1.92.Final） 的实现demo （项目部署阿里云，访问地址：http://47.99.139.38:8080/#/netty-socket ）
-Alipay（阿里支付）：基于沙箱的web网页支付。
+Alipay（支付宝支付）：基于沙箱的web网页支付。
